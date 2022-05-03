@@ -12,6 +12,7 @@ export default class CsTemplate extends Template {
     protected getOptionalUsings(): string[] {
         return [
             'System',
+            'System.Collections',
             'System.Collections.Generic',
             'System.Linq',
             'System.Threading.Tasks',

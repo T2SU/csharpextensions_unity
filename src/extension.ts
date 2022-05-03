@@ -94,7 +94,7 @@ export class Extension {
             await template.create(templatesPath, pathWithoutExtension, newFilename);
         } catch (errCreating) {
             const message = `Error trying to create new ${template.getName()} at ${pathWithoutExtension}`;
-            
+
             showAndLogErrorMessage(message, errCreating);
         }
     }
@@ -139,6 +139,9 @@ export class Extension {
             this.KnownTemplates = new Map();
 
             this.KnownTemplates.set('class', new CsTemplate('Class', 'createClass'));
+            this.KnownTemplates.set('monobehaviour', new CsTemplate('MonoBehaviour', 'createMonoBehaviour', [
+                'UnityEngine',
+            ]));
             this.KnownTemplates.set('interface', new CsTemplate('Interface', 'createInterface'));
             this.KnownTemplates.set('enum', new CsTemplate('Enum', 'createEnum'));
             this.KnownTemplates.set('struct', new CsTemplate('Struct', 'createStruct'));
